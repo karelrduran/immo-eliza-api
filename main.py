@@ -1,9 +1,12 @@
+import uvicorn
 from fastapi import FastAPI
 
 from property.routers import house, apartment
 from config import Config
 
 config = Config()
+
+a = uvicorn
 
 app = FastAPI(
     title="Price predictor for houses and apartments in Belgium",
@@ -20,6 +23,7 @@ app = FastAPI(
 
 app.include_router(house.router)
 app.include_router(apartment.router)
+
 
 @app.get('/')
 def root():
