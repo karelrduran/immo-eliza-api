@@ -1,12 +1,27 @@
-from typing import Dict
 import pandas as pd
 
 from property.schemas import Property
 
 
 class Transformation:
+    """
+    Class for performing data transformation.
+
+    Methods:
+        encode(cls, data: Property) -> Property: Encodes categorical features of the property data.
+        transform(cls, data: Property, property_type: str = 'house') -> pd.DataFrame: Transforms property data into DataFrame suitable for prediction.
+    """
     @classmethod
     def encode(cls, data: Property) -> Property:
+        """
+        Encodes categorical features of the property data.
+
+        Args:
+            data (Property): The property data to be encoded.
+
+        Returns:
+            Property: The encoded property data.
+        """
         state_of_building_encoder = {'TO_RESTORE': 1, 'TO_RENOVATE': 2, 'TO_BE_DONE_UP': 3, 'GOOD': 4,
                                      'JUST_RENOVATED': 5, 'AS_NEW': 6}
 
@@ -28,6 +43,16 @@ class Transformation:
 
     @classmethod
     def transform(cls, data: Property, property_type: str = 'house'):
+        """
+        Transforms property data into DataFrame suitable for prediction.
+
+        Args:
+            data (Property): The property data to be transformed.
+            property_type (str, optional): Type of property ('house' or 'apartment'). Defaults to 'house'.
+
+        Returns:
+            pd.DataFrame: Transformed property data in DataFrame format.
+        """
         data = cls.encode(data=data)
         if property_type == 'house':
             row = {

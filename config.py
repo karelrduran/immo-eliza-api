@@ -2,6 +2,15 @@ import os
 
 
 class Config:
+    """
+    Configuration class for the API.
+
+    Attributes:
+        project_dir (str): Absolute path to the project directory.
+        ap_trained_model (str): Path to the pre-trained XGBoost regression model for apartments.
+        h_trained_model (str): Path to the pre-trained XGBoost regression model for houses.
+        description (str): Description of the API service and JSON formats for input data and output predictions.
+    """
     def __init__(self):
         # Get project dir path
         self.project_dir = os.path.abspath(os.path.join(os.path.dirname(__file__)))
