@@ -126,6 +126,8 @@ The API returns the predicted price as a JSON object with the following structur
     - [repository/](property/repository) -- Scripts for predicting property prices
     - [routers](property/routers) -- Router scripts for handling API requests
   - [main.py](main.py) -- Main script that runs the application
+  - [config.py](config.py) -- App configuration class
+  - [Dockerfile](Dockerfile) -- Docker confuguration file
   - [README.md](README.md) -- Readme file
   - [requirements.txt](requirements.txt) -- Contains required packages by the project
 
